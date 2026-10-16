@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>ai-lab · James Xie 的 AI 实验室</title>
+<style>
+  :root{
+    --ink:#1f2b3d; --sub:#64748b; --brand:#4aa3ff; --brand2:#ff8fb1;
+    --bg1:#eaf4ff; --bg2:#fdf0f5; --card:rgba(255,255,255,.82);
+    --shadow:0 10px 34px rgba(31,43,61,.12);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;min-height:100%}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,-apple-system,"Segoe UI",sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(1100px 620px at 12% -8%, #d8ecff 0%, transparent 60%),
+      radial-gradient(900px 560px at 92% 4%, #ffe4ef 0%, transparent 58%),
+      linear-gradient(165deg, var(--bg1), var(--bg2));
+    background-attachment:fixed;
+    padding:clamp(20px,5vw,64px) clamp(16px,5vw,40px);
+    display:flex;justify-content:center;
+  }
+  .wrap{width:100%;max-width:860px}
+
+  /* ---------- 头部 ---------- */
+  header{margin-bottom:clamp(26px,4vw,44px)}
+  .badge{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    color:#2b6cb0;background:rgba(74,163,255,.14);
+    padding:6px 12px;border-radius:99px;margin-bottom:16px;
+  }
+  .badge i{width:7px;height:7px;border-radius:50%;background:var(--brand);display:block;
+    box-shadow:0 0 0 4px rgba(74,163,255,.2);animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  h1{
+    margin:0 0 6px;font-size:clamp(26px,5.4vw,40px);line-height:1.2;letter-spacing:-.01em;
+  }
+  h1 .en{display:block;font-size:.44em;font-weight:600;color:var(--sub);letter-spacing:.16em;margin-top:10px}
+  .lead{
+    margin:18px 0 0;font-size:clamp(14px,2.4vw,16px);line-height:1.85;color:#42536b;max-width:62ch;
+  }
+  .lead .en{display:block;margin-top:10px;color:var(--sub);font-size:.92em;line-height:1.8}
+
+  /* ---------- 分隔 ---------- */
+  .rule{height:1px;margin:clamp(28px,4vw,44px) 0;
+    background:linear-gradient(90deg,transparent,rgba(31,43,61,.14),transparent)}
+
+  /* ---------- 卡片列表 ---------- */
+  .list{display:grid;gap:14px}
+  .card{
+    display:block;text-decoration:none;color:inherit;position:relative;
+    background:var(--card);backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.7);border-radius:18px;
+    padding:20px 22px;box-shadow:var(--shadow);
+    transition:transform .25s cubic-bezier(.2,.7,.3,1),box-shadow .25s,border-color .25s;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(31,43,61,.16);border-color:rgba(74,163,255,.4)}
+  .card:focus-visible{outline:3px solid rgba(74,163,255,.5);outline-offset:2px}
+  .card h2{margin:0;font-size:17px;letter-spacing:.01em;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .card h2 .arrow{margin-left:auto;color:var(--brand);font-weight:400;transition:transform .25s}
+  .card:hover h2 .arrow{transform:translateX(4px)}
+  .card p{margin:9px 0 0;font-size:13.5px;line-height:1.75;color:var(--sub)}
+  .tag{
+    font-size:11px;font-weight:600;letter-spacing:.04em;padding:3px 9px;border-radius:99px;
+    background:rgba(255,143,177,.18);color:#b6456c;
+  }
+  .tag.blue{background:rgba(74,163,255,.16);color:#2b6cb0}
+  .tag.green{background:rgba(126,224,138,.22);color:#2f7a45}
+
+  /* ---------- 页脚 ---------- */
+  footer{
+    margin-top:clamp(34px,5vw,54px);padding-top:22px;
+    border-top:1px solid rgba(31,43,61,.09);
+    font-size:12.5px;color:var(--sub);line-height:1.9;
+    display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between;
+  }
+  footer a{color:var(--brand);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+  .copy{opacity:.8}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="badge"><i></i>AI Lab · 实验品展示</span>
+    <h1>
+      James Xie 的 AI 实验室
+      <span class="en">AI Lab by James Xie</span>
+    </h1>
+    <p class="lead">
+      这里收录我做的各种基于 AI 的实验性小项目：实时 3D 场景、交互式 Demo、工具原型等等。
+      它们大多还在持续迭代，欢迎点开体验。
+      <span class="en">
+        A collection of AI-powered experiments — real-time 3D scenes, interactive demos,
+        and tool prototypes. Most are works in progress; feel free to explore.
+      </span>
+    </p>
+  </header>
+
+  <div class="rule"></div>
+
+  <main class="list">
+
+    <a class="card" href="./html/ai-Interaction-nursery.html">
+      <h2>
+        阳光幼儿园 · 实时 Web3D Demo
+        <span class="tag blue">Three.js</span>
+        <span class="arrow">→</span>
+      </h2>
+      <p>
+        纯前端单文件的低多边形 3D 幼儿园场景，可旋转、缩放、点击区域与小朋友，观看自动漫游。
+        <br>
+        A single-file low-poly 3D kindergarten scene — rotate, zoom, click zones and kids, or watch auto-tour.
+      </p>
+    </a>
+
+    <!-- 以后新增项目，复制上面这段 <a class="card"> ... </a> 改内容即可 -->
+
+  </main>
+
+  <footer>
+    <span class="copy">© <span id="y"></span> James Xie · ai-lab</span>
+    <span>
+      <a href="https://github.com/jamesxie/ai-lab">GitHub 仓库</a>
+    </span>
+  </footer>
+
+</div>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
